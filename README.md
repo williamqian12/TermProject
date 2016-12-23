@@ -2,7 +2,7 @@
 Readme 
 
 This project is designed to teach braille to those who are sighted. The goal is to provide perspective
-as to how those who are visually impaired interact with the world. In order to run the program open and run the frontend.py file. 
+as to how those who are visually impaired interact with the world. In order to run the program open and run the frontend.py file. The extra folder contains files that were used as drafts/experimentation to enable the creation of this project.
 It should be noted that this program uses python2 rather than python3 since some functions in opencv2 are not 
 compatible with python3. Pillow was also briefly usedin order to import one picture into the program. 
 
