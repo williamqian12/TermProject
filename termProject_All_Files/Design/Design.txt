@@ -1,0 +1,17 @@
+Design
+
+The goal was to teach people braille in hopes of giving them a bit of how the visually impaired live and communicate. To do this I have created
+an app-like program that enables people who use it to become more proficient in braille. There are 3 modes: translate, practice and a game mode. Translate
+initially helps users get used to reading braille and translating it through both text to braille and braille to text. Braille to text uses
+the webcamera to read handwritten braille as it provides an alternative to the tedious option of having to manually input it every single time
+Practice is as it sounds. It gives users practice in quickly flipping from alphanumerical text to braille text. Finally game mode provides some more 
+entertainment in case the user becomes weary from the other two modes. Note however, the game mode requires the user to be very proficient at reading braille
+in order to determine the word. The game also requires quite a bit of logical guessing. Afterwards, the user may note there progress from the stats page
+and the help/about page offers insight to the program and has a dictionary.
+
+As for the overall design of the program, I decided to keep the UI assimple and as simple looking as possible. This is to prevent, "scaring" the user
+especially since this can be considered learning software and therefore should be and appear to be simple and easy to use. Opencv was used in order to gain
+access to the webcamera as well as some of its useful filters and functions but the majority of the data processing was self implemented (removing noise, determining braille
+extrapolating data when it is incomplete) in order to read hand written braille. Tkinter was used for graphics since it the program isnt very 
+graphics heavy. It should also be noted that the program can be resized as to allow for different preferences in size of program. Pillow was used verylittle in order to 
+import images. Finally i decided to make the program app like to emulate professional learning software such as duolingo. 

@@ -1,0 +1,36 @@
+import numpy as np
+import cv2
+cam=cv2.VideoCapture(0)
+print(1/float(2))
+while True:
+    ret, frame=cam.read()
+   # ret=cam.set(3,200)
+    #ret=cam.set(4,200)
+    hsv=cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
+    #print(frame.shape[:2])
+    #hsv hue saturation value
+    lowerB=np.array([0,150,0])#black s=0  
+    upperB=np.array([255,255,255])#black v=50, blue v=255
+    mask=cv2.inRange(hsv,lowerB,upperB)
+    cv2.rectangle(mask,(100,200),(540,400),(255,0,0),2)
+    #kernel1=np.ones((2,2),np.uint8)
+    #erosion=cv2.erode(mask,kernel1,iterations=1)
+    #dilation=cv2.dilate(mask,kernel1,iterations=1)
+    #kernel=np.ones((2,2),np.float32)/4
+    #smoothed=cv2.filter2D(mask,-1,kernel)    
+    #cv2.imshow('frame',frame)
+    #cv2.imshow('mask',mask)
+    cv2.imshow('camera',mask)
+ 
+    k=cv2.waitKey(5)& 0xFF
+
+    if k==27:
+        break
+    elif k%256 == 32:
+        # SPACE pressed
+        imagePath = "foo.png"
+        cv2.imwrite(imagePath, mask)
+        print("written!")
+        
+cv2.destroyAllWindows()
+cam.release()

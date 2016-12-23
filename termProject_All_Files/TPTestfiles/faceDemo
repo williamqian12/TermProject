@@ -1,0 +1,65 @@
+# button-demo2.py
+# Simple buttons now in a horizontal row at the top
+# (using a gridded frame)
+# (uses same buttons from button-demo1.py)
+
+from Tkinter import *
+
+def button1Pressed():
+    # accesses canvas as a global variable
+    global canvas # declare global both here and in run()
+    canvas.data["count1"] += 1
+    redrawAll(canvas)
+
+def button2Pressed(canvas):
+    # accesses canvas as a parameter (see local function below)
+    # this approach does not use global variables
+    canvas.data["count2"] += 1
+    redrawAll(canvas)
+    
+def redrawAll(canvas):
+    canvas.delete(ALL)
+    # background (fill canvas)
+    canvas.create_rectangle(0,0,300,300,fill="cyan")
+    # print counts
+    msg = "count1: " + str(canvas.data["count1"])
+    canvas.create_text(150,130,text=msg)
+    msg = "count2: " + str(canvas.data["count2"])
+    canvas.create_text(150,170,text=msg)
+
+def init(root, canvas):
+    canvas.data["count1"] = 0
+    canvas.data["count2"] = 0
+    buttonFrame = Frame(root)
+    b1 = Button(buttonFrame, text="button1", command=button1Pressed)
+    # b1.pack()
+    b1.grid(row=0,column=0)
+    # Here is the local function and "canvas" is in the closure
+    def b2Pressed(): button2Pressed(canvas)
+    b2 = Button(buttonFrame, text="button2", command=b2Pressed)
+    # b2.pack()
+    b2.grid(row=0,column=1)
+    buttonFrame.pack(side=TOP)
+    canvas.pack() # moved canvas packing to here (after buttonFrame pack)
+    redrawAll(canvas)
+
+########### copy-paste below here ###########
+
+def run():
+    # create the root and the canvas
+    root = Tk()
+    global canvas # make canvas global for button1Pressed function
+    canvas = Canvas(root, width=300, height=300)
+    # Store canvas in root and in canvas itself for callbacks
+    root.canvas = canvas.canvas = canvas
+    # Set up canvas data and call init
+    canvas.data = { }
+    init(root, canvas)
+    # set up events
+    #root.bind("<Button-1>", mousePressed)
+    #root.bind("<Key>", keyPressed)
+    #timerFired(canvas)
+    # and launch the app
+    root.mainloop()  # This call BLOCKS (so your program waits until you close the window!)
+
+run()

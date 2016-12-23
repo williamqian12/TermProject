@@ -1,0 +1,36 @@
+#PROJECT PROPOSAL
+'''
+I intend to create a program that essentially reads braille from a web camera and converts it into text
+All other features should be based on this particular feature (mode that allows u to practice reading braille/writing and comphrehending it)
+Naturally this term project will require the use of opencv as well as numpy. I intend to first have a framework with by using many builtin opencv function
+hoping to eventually code my own but getting it to function is priority. I chose this particular problem bc i thought it would be 
+cool to learn braille and get some perspective to how those who cannot see interact with the world hoping that others would  have the same sentiment
+As for the specific user interface I think tkinter should be sufficient since most of the user interface would be with either simple keyboard instructions
+and webcamera which is covered by opencv. The program will also be mostly text so "fancy" graphics arent used
+
+'''
+
+#COMPETITIVE ANALYSIS
+'''
+So far the closest program to this idea would be one "http://www.mattvenn.net/2014/02/08/using-a-computer-to-read-braille/"
+that essentially uses opencv to read braille. The key difference between what I intend to do and what he did is that I will not be using as much hardware
+to detect the braille and instead of utilizing pins my program will read a piece of paper with colored dots, filled for "bump" and unfilled outline for
+"unfilled". there are also online text to braille translators that take keystrokes and converts it into braille images. I will be implementing something similar
+in my program. 
+'''
+
+
+#experimental code
+im=cv2.imread('test5.png')
+im_gray=cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
+template=cv2.imread('unfilledtest1.png',0)
+width,height=template.shape[::-1]
+res=cv2.matchTemplate(im_gray,template,cv2.TM_CCOEFF_NORMED)
+threhold=0.3
+loc=np.where(res>=threhold)
+for pt in zip(*loc[::-1]):
+    cv2.rectangle(im,pt,(pt[0]+width,pt[1]+height),(0,255,255),0)
+cv2.imshow('1',im)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+'''

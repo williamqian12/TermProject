@@ -1,0 +1,18 @@
+TimeSheet
+
+Nov 19/2016         spent 5 hours learning to use opencv experimented with hough circle transformation and decided not to use pillow
+Nov 20/2016         spent approx 5-6 hours experimenting with filters/bounding circles seems to work better, also hooked up webcam
+Nov 21/2016         spent around 3 hours enabling webcam to take image/store it and getting overall general backend to work fairly well (note reading                single letters less well with longer words (needs more calibration))
+Nov 22/2016	    spent 1.5 hours approximately starting to write my front end decided on using tkinter
+Nov 23/2016	    spent 2 hours getting a basic layout of my program, decided to make everything scalable
+Nov 24/2016	    spent 2 hours finishing basic mainmenu and translate mode's text to braille function
+Nov 25/2016	    spent 2 hours completing translate mode's braille to text function and starting the practice mode
+Nov 26/2016	    spent 1 hour on the practice mode fixing user interface issues
+Nov 27/2016 	    spent 2 hours completing the basic practice mode
+Nov 28/2016 	    spent 3 hours designing and creating a framework for the game mode
+Dec 2/2016	    spent 5 hours completing game mode and starting a basic stats page
+Dec 3/2016	    spent 5 hours ironing out bugs in translate mode, beginning to make translate more visually appealing
+Dec 4/2016	    spent 6 hours making translate more text editor like, debugging practice mode, making game mode more visually appealing
+Dec 5/2016	    spent 5 hours added dynamic background worked on making more visually appealing, removing any bugs overall
+Dec 6/2016	    spent 5 hours optimizing backend(improving detection removing noise, extrapolate information), added a help/about screen
+Dec 7/2016	    spent 5 hours dedicated to graphical issues, making video, touching up on the project :-)
