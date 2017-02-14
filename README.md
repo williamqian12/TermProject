@@ -6,7 +6,7 @@ as to how those who are visually impaired interact with the world. In order to r
 It should be noted that this program uses python2 rather than python3 since some functions in opencv2 are not 
 compatible with python3. Pillow was also briefly usedin order to import one picture into the program. 
 
-In order to install OpenCV2 here are the instructions taken from an email by Professor David Kosbie's:
+In order to install OpenCV2 here are the instructions taken from an email by Professor David Kosbie:
 
 
 Windows Installation Instructions:
